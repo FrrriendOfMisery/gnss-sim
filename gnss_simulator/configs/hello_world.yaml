@@ -1,0 +1,32 @@
+# hello_world.yaml
+metadata:
+  version: "1.0"
+  name: "Hello World"
+  description: "Minimal GPS simulation"
+
+time:
+  duration_sec: 10.0
+  update_rate_hz: 10.0
+
+receiver:
+  trajectory: static
+  position: [55.75, 37.62, 150.0]
+
+constellation:
+  - system: GPS
+    ephemeris:
+      source: builtin
+      builtin:
+        num_satellites: 6
+    signals:
+      - name: L1_CA
+        enabled: true
+
+output:
+  type: file
+  file:
+    path: "hello_world.dat"
+
+simulation:
+  sample_rate_hz: 5.0e6
+  max_channels: 6
